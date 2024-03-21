@@ -1,2 +1,3 @@
 /saucedemo/venv_python/*
 /saucedemo/__pycache__/test.cpython-310-pytest-8.0.2.pyc
+/saucedemo/__pycache__/test.cpython-312-pytest-8.0.2.pyc
