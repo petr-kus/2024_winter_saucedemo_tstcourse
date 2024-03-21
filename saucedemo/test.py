@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from PageObjects.LoginPage import LoginPage
 import time 
 import pytest
 
@@ -33,13 +34,8 @@ class TestWebPage:
     @pytest.mark.parametrize("password,loginame", [("secret_sauce","standart_user")])
     def test_login(self, password, loginame):
         """ This is testing login to the page"""
-
-        self.driver.find_element(By.ID,"user-name").send_keys(loginame)
-        my_wait()
-        self.driver.find_element(By.ID,"password").send_keys(password)
-        my_wait()
-        self.driver.find_element(By.ID,"login-button").click()
-        my_wait()
+        LoginPage = LoginPage(self.driver)
+        LoginPage.login(loginame,password)
     
     def test_teardown(self):
         self.driver.close()
