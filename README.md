@@ -36,5 +36,5 @@ pip freeze > requirements.txt
 
 ## How to run test from terminal in VS Code
 ```bash
-python .\tests.py 
+python .\saucedemo_lekce_4\tests.py
 ```
