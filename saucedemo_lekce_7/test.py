@@ -44,6 +44,8 @@ def login_page():
 
 class TestWebPage:
 
+    test_page = "https://www.saucedemo.com/"
+    test_page_inventory = "https://www.saucedemo.com/inventory.html"
     login_error_box = "//h3[@data-test='error']"
 
     @pytest.mark.parametrize("loginame, password", 
@@ -60,18 +62,18 @@ class TestWebPage:
 
         #DIFFERENT SOLUTION - possible add drver also to Page Object Model
         #browser = Browser(driver)
-        #browser.go_to_page("https://www.saucedemo.com/")
+        #browser.go_to_page(test_page)
 
-        browser.get("https://www.saucedemo.com/")
+        browser.get(self.test_page)
         slowdown()
         loginPage.login(loginame, password)
         slowdown()
         assert "inventory" in browser.current_url
         slowdown()
         menu.logout()
-        assert "https://www.saucedemo.com/" == browser.current_url
-        browser.get("https://www.saucedemo.com/inventory.html")
-        assert "https://www.saucedemo.com/" == browser.current_url
+        assert self.test_page == browser.current_url
+        browser.get(self.test_page_inventory)
+        assert self.test_page == browser.current_url
         assert browser.find_element(By.XPATH, self.login_error_box)
 
         #TODO: passing also for performance glitch user - shoudl not - have to be added verifictaion for performance
@@ -81,7 +83,7 @@ class TestWebPage:
         """ This is testing unsuccessful login to the page"""
 
         loginPage = LoginPage(browser)
-        browser.get("https://www.saucedemo.com/")
+        browser.get(self.test_page)
         slowdown()
         loginPage.login(loginame, password)
         slowdown()
