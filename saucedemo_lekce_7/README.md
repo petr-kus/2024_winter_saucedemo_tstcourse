@@ -42,7 +42,7 @@ a editor mi za tečkou hned napovídá co mohu dělat (volat metody) a nebo jak�
 
 ## Centralizace adresace, jejího způsobu a parametrizace stránek
 
-Prostě věcí co se opakují dáváme do proměných, aby se někde přehledně nastavovali a dali se ovládat centrálně a nemusel jsme je přepisovat na spoustě řádků.
+Prostě věcí co se opakují dáváme do proměných, aby se někde přehledně nastavovali a dali se ovládat centrálně a nemuseli jsme je přepisovat na spoustě řádků.
 Když toho je opravdu hodně, dají se použít i definice v externích souborech.
 
 test.py:
@@ -148,6 +148,9 @@ class TestWebPage:
         ...
 ```
 
-Povšimněte si, že v logovacím scénáři nahoře je jak nakjetí na stránku, zalogovaní tak odlogovaní, aby vstupní a výstupní bod testu umožňoval rychle puštění všech kombinací za sebou. 
-
-Test je také izolovaný / atomický - je mu jedno co běželo před ním a co po něm. Jsem schopni ho pustit v libovolném pořadí vuči klidně i dalším testům. Je mu i jedno jak přehodím řádky v tabulce.
+Povšimněte si, že v logovacím scénáři nahoře je jak najetí na stránku, zalogovaní tak odlogovaní ('setup'/'teardown') 
+Jaké z toho pak plynou výhody:
+- Vstupní a výstupní bod/stav testu umožňuje rychle puštění všech kombinací za sebou. 
+- Test je také tím izolovaný / atomický - je mu jedno co běželo před ním a co po něm. 
+- Jsem schopni ho pustit v libovolném pořadí vuči klidně i dalším testům. 
+- Je mu i jedno jak přehodím řádky v tabulce.
