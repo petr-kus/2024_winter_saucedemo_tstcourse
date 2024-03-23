@@ -149,8 +149,38 @@ class TestWebPage:
 ```
 
 Povšimněte si, že v logovacím scénáři nahoře je jak najetí na stránku, zalogovaní tak odlogovaní ('setup'/'teardown') 
+
 Jaké z toho pak plynou výhody:
 - Vstupní a výstupní bod/stav testu umožňuje rychle puštění všech kombinací za sebou. 
 - Test je také tím izolovaný / atomický - je mu jedno co běželo před ním a co po něm. 
 - Jsem schopni ho pustit v libovolném pořadí vuči klidně i dalším testům. 
 - Je mu i jedno jak přehodím řádky v tabulce.
+
+## Test Design ověření zalogování/odlogování
+
+Úplně bez problémů je použito několik assertů za sebou i na různé věci. Křížově se ověřuje něco několika způsoby.
+
+```python
+    def test_Successful_Login_and_Logout(self, loginame, password):
+        """ This is testing successful login and logout to the page"""
+        ...
+
+        browser.get(self.test_page)
+        loginPage.login(loginame, password)
+        assert "inventory" in browser.current_url
+        menu.logout()
+        assert self.test_page == browser.current_url
+
+        #po odlogovaní zkusí najet na stránku s inventářem
+        browser.get(self.test_page_inventory)
+        #a ověří že ho to přesměruje na loginpage a na inventář se nedostane
+        assert self.test_page == browser.current_url
+
+        #a ověří že je tam zobrazená nějáká chyba v logovaní
+        assert browser.find_element(*self.login_error_box)
+```
+
+V autotestu je skutečně dost často ověřeno jen to co tam napíšte.
+- Tak to tam nezapomeňte napsat! 
+- A zkusit si, že to selže!
+PS: občas vás ale i překvapí, že to přišlo na něco co jste tam nenapsali :-).
