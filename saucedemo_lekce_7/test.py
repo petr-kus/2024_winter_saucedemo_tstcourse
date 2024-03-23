@@ -54,7 +54,7 @@ def login_page():
         logging.debug(f"Going make user logoff via page menu from page '{current_page}'")
         menu = Menu(browser)
         menu.logout()
-        logging.info(f"Logoff form '{current_page}' already done.")
+        logging.info(f"Logoff from '{current_page}' already done.")
     except:
         logging.warn(f"The page '{current_page}' was not logged in!")
 

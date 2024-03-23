@@ -201,17 +201,17 @@ Při testování s PyTestem máme na výběr použít různých přístupů k lo
 - napsat si vlastní logování (no, proč se s tím dřít. Už jen napsat printy je zbytečně složité)
 - použít jinou externí knihovnu pro logování (Stojí za úvahu, ale aby to bylo výhodné musí to mít hodně vážený benefit)
 
-Z toho logicky plyne, použít v kurzu cestu pzthon logovaní v kombinaci s Caplogem. Více o tomto tématu naleznete zde:
+Z toho logicky plyne, použít v kurzu cestu python logovaní v kombinaci s Caplogem. Více o tomto tématu naleznete zde:
 - https://pytest-with-eric.com/fixtures/built-in/pytest-caplog/
 - https://pytest-with-eric.com/pytest-best-practices/pytest-logging/#Custom-Logger-vs-Inbuilt-Logging-Module
+
+A i některé další témata jež jsme již probrali na kurzu.
 
 Tam též naleznete velmi dobrý teoretický popis i s praktickými příklady a vysvětlením proč použít caplog.
 - dokáže rozdělit fáze pytestu (setup/terdown/test execution ...)
 - dokáže oddělit logy z různých testů (ma kontext pytestu)
 - můžete ho snadno použít k podmínkám a assertovaní zda něco bylo / nebylo zalogováno
 - ...
-
-A i některé další témata jež jsme již probrali na kurzu.
 
 test.py
 ```python
@@ -250,3 +250,28 @@ f"Login page '{login_page}' loaded already."
 ```python
 '{login_page}'
 ```
+### Live logging - aneb jak a proč si logy jednoduše zobrazit
+
+Pokud chcete v konzoli zobrazit výstup z logu stačí přidat parametr --log-cli-level [log_level]
+
+```bash
+pytest .\test.py --log-cli-level INFO
+```
+```bash
+pytest .\test.py --log-cli-level DEBUG
+```
+```bash
+pytest .\test.py --log-cli-level 0
+```
+
+Více o levelech a live loggingu najdete zde
+- https://docs.python.org/3/library/logging.html#levels
+- https://docs.pytest.org/en/7.1.x/how-to/logging.html#live-logs
+
+je tam i napsáno jak logy poslat přes pytest do souboru.
+
+K čemu je dobré věnovat se logům z vašeho testu a podívat se na ně?
+- uvědomíte si jak průběh testu vypadá pro ostatní, a zda není ještě třeba něco vypsat/opravitm aby to bylo správně či pochopitelné.
+- odhalíte případné chyby kterých jste si doposud nevšimli. (Třeba, že to nějakou částí kódu vůbec neprojde, nebo že se testovaný subjekt - Systeém under test - SUT, chová jinak, než by jste očekávali)
+- logy jde použít k ověření si, že test funguje tak jak má.
+- ...
