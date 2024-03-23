@@ -7,15 +7,15 @@ def slowdown():
     time.sleep(0.5)
 
 class Menu:
-    main_menu_button = "react-burger-menu-btn"
-    logout_button = "//nav/*[text()='Logout']"
+    main_menu_button = (By.ID, "react-burger-menu-btn")
+    logout_button = (By.XPATH,"//nav/*[text()='Logout']")
 
     def __init__(self, driver):
         self.driver = driver
 
     def logout(self):
         slowdown()
-        self.driver.find_element(By.ID, self.main_menu_button).click()
+        self.driver.find_element(*self.main_menu_button).click()
         slowdown()
-        WebDriverWait(self.driver,2).until(EC.visibility_of_element_located((By.XPATH,self.logout_button))).click()
+        WebDriverWait(self.driver,2).until(EC.visibility_of_element_located(self.logout_button)).click()
         slowdown()
