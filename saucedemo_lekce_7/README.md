@@ -34,6 +34,14 @@ Této konstrukci, kdy vše související se stránkou či komponentou oddělí b
 Výhody jsou:
 - snadná udržitelnost. Když něco měním, tak to měním na jednom místě a né na spoustě řádků. Třeba si představte, že se změní přístup k tlačítku z By.ID na By.XPATH a nebo se změní způsob zalogovaní - přidá se captha např.
 - vše co je u sebe je pohormadě i v kodu (aneb proximity principle). Dlouho to nehledám a nemusím v kodu skákat. Rychle to chápu.
+- složitý a nečitelný kod je odstíněn a schován za Page Object Model = umožňuje to budování tzv. 'Doménového Jazyka'
+```python
+#příklady
+loginPage.login('jméno','heslo')
+menu.logout()
+```
+
+
 - při psaní kódu mě stačí napsat 
 ```python
 loginPage.
