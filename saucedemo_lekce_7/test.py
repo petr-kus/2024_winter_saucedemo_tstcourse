@@ -3,13 +3,19 @@ from selenium.webdriver.common.by import By
 import time 
 import pytest
 
+#standartni python logging
+import logging
+
 #LOAD PAGE OBJECTS
 from PageObjects.LoginPage import LoginPage
 from PageObjects.Menu import Menu
 #from PageObjects.Browser import Browser
 
 def slowdown():
-    time.sleep(0.5)
+    sleep_time = 0.5
+    if sleep_time > 0:
+        logging.debug(f"slowdown and sleep {sleep_time}s to be visible during test development")
+        time.sleep(sleep_time)
 
 #OLD FIXTURES
 """
@@ -27,20 +33,30 @@ def credentials():
 @pytest.fixture(autouse=True, scope="session")
 def Browser():
     global browser
+    logging.debug(f"Starting browser chrome...")
     browser = webdriver.Chrome()
+    logging.info(f"Browser started")
     yield browser
+    logging.debug(f"Ending browser chrome...")
     browser.close()
     browser.quit()
+    logging.info(f"Browser closed")
 
 @pytest.fixture()
 def login_page():
-    browser.get("https://www.saucedemo.com/")
+    login_page = "https://www.saucedemo.com/"
+    logging.debug(f"Going to login page '{login_page}'")
+    browser.get(login_page)
+    logging.info(f"Login page '{login_page}' loaded already.")
     yield
+    current_page = browser.current_url
     try:
+        logging.debug(f"Going make user logoff via page menu from page '{current_page}'")
         menu = Menu(browser)
         menu.logout()
+        logging.info(f"Logoff form '{current_page}' already done.")
     except:
-        print("INFO - page was not logged in")
+        logging.warn(f"The page '{current_page}' was not logged in!")
 
 class TestWebPage:
 
