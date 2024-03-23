@@ -46,7 +46,7 @@ class TestWebPage:
 
     test_page = "https://www.saucedemo.com/"
     test_page_inventory = "https://www.saucedemo.com/inventory.html"
-    login_error_box = "//h3[@data-test='error']"
+    login_error_box = (By.XPATH,"//h3[@data-test='error']")
 
     @pytest.mark.parametrize("loginame, password", 
                             [("standard_user", "secret_sauce"), 
@@ -55,7 +55,7 @@ class TestWebPage:
                             ("error_user", "secret_sauce"), 
                             ("visual_user", "secret_sauce")])
     def test_Successful_Login_and_Logout(self, loginame, password):
-        """ This is testing successful login to the page"""
+        """ This is testing successful login and logout to the page"""
 
         loginPage = LoginPage(browser)
         menu = Menu(browser)
@@ -74,7 +74,7 @@ class TestWebPage:
         assert self.test_page == browser.current_url
         browser.get(self.test_page_inventory)
         assert self.test_page == browser.current_url
-        assert browser.find_element(By.XPATH, self.login_error_box)
+        assert browser.find_element(*self.login_error_box)
 
         #TODO: passing also for performance glitch user - shoudl not - have to be added verifictaion for performance
 
@@ -88,7 +88,7 @@ class TestWebPage:
         loginPage.login(loginame, password)
         slowdown()
         assert "inventory" not in browser.current_url
-        assert browser.find_element(By.XPATH, self.login_error_box)
+        assert browser.find_element(*self.login_error_box)
 
     #Approach with usage fixture nad yield for teardown (logout)
     @pytest.mark.parametrize("loginame, password", 
