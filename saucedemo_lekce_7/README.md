@@ -193,11 +193,11 @@ V autotestu je skutečně dost často ověřeno jen to co tam napíšte.
 - A zkusit si, že to selže!
 PS: občas tě ale i překvapí, že to přišlo na něco co jste tam nenapsal/a :-).
 
-## Logování samotného testu pomocí Caplogu (zatím v příkladu jen naznačeno - není použito všude a plně)
+## Logování samotného testu pomocí python loggru a použití Caplogu (zatím v příkladu jen naznačeno - není použito všude a plně)
 
 Při testování s PyTestem máme na výběr použít různých přístupů k logovaní:
-- Caplog - funkcionalita Pytestu (asi nejlepší cesta, která nabízi přidanou funkcionalitu) 
-- standartni python logging (též hodně dobrá cesta - nepoužívá vnitřně věci specifické pro pytest - za to je to hodně obecný. Caplog je na něm samozřejmně postaven a používá ho.)
+- Caplog - funkcionalita Pytestu (asi nejlepší cesta když s logy něco chcete dělat, která nabízi přidanou funkcionalitu k standartnímu Python logování) 
+- standartni python logging (dobrá cesta. Caplog je na něm samozřejmně postaven a využívá jeho k samotné akci logování.)
 - napsat si vlastní logování (no, proč se s tím dřít. Už jen napsat printy je zbytečně složité)
 - použít jinou externí knihovnu pro logování (Stojí za úvahu, ale aby to bylo výhodné musí to mít hodně vážený benefit)
 
