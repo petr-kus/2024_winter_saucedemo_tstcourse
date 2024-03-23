@@ -181,6 +181,6 @@ Jaké z toho pak plynou výhody:
 ```
 
 V autotestu je skutečně dost často ověřeno jen to co tam napíšte.
-- Tak to tam nezapomeňte napsat! 
+- Tak to tam nezapomeň napsat! 
 - A zkusit si, že to selže!
-PS: občas vás ale i překvapí, že to přišlo na něco co jste tam nenapsali :-).
+PS: občas tě ale i překvapí, že to přišlo na něco co jste tam nenapsal/a :-).
