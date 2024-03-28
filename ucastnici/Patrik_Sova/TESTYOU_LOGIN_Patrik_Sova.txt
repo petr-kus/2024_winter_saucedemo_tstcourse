@@ -1,0 +1,10 @@
+Jak otestovat TESTYOU LOGIN
+*****************************
+Prvně bych si zajistil od programátora platné přihlašovací údaje a testoval bych jestli se dokážu přihlásit.
+Pak bych zadal platný Email Adress/Login id a špatné heslo = Zde bych se neměl přihlásit a mělo by na mě vyskočit upozornění, že jsem zadal špatné heslo.
+Zkusil bych další variantu s neplatným Email Adress/Login id ale se platným heslem. = Zde bych se neměl také přihlásit a mělo by na mě vyskočit upozornění, že jsem zadal neplatný Email Adress/Login id.
+Zkusil bych také nezadat Login id a heslo(prázdné pole) a zkusil bych se přihlásit = mělo by na mě vyskočit že jsem nezadal platný Login id a heslo.
+Takhle bych otestoval základní funkčnost.
+Dále vidím, že je tady možnost registrace, tak bych zkusil zaregistrovat nového uživatele a otestovat jestli se dokážu přihlásit.
+Další možnost co bych otestovat tak, jestli zapomenu heslo a vím Login id/mail, tak jestli mi to pošle moje heslo nebo udělá reset hesla na můj mail.
+Pak bych testoval možnost přihlášení přes FB nebo přes Google.

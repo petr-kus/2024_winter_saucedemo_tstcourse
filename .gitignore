@@ -1,3 +1,11 @@
 /saucedemo/venv_python/*
 /saucedemo/__pycache__/test.cpython-310-pytest-8.0.2.pyc
 /saucedemo/__pycache__/test.cpython-312-pytest-8.0.2.pyc
+/venv_python/*
+/saucedemo_lekce_7/__pycache__/test.cpython-312-pytest-8.0.2.pyc
+/saucedemo_lekce_7/PageObjects/__pycache__/__init__.cpython-312.pyc
+/saucedemo_lekce_7/PageObjects/__pycache__/*
+/saucedemo_lekce_7/alure_report/*
+/saucedemo_lekce_7/assets/style.css
+/saucedemo_lekce_7/docker-compose.yml
+/saucedemo_lekce_7/report.html
