@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation     basic test of saucedemo.com
 Library           SeleniumLibrary
+Resource          login_page.robot
 
 *** Variables ***
 ${URL}            https://www.saucedemo.com/
@@ -15,7 +16,9 @@ ${POSTAL_CODE}    70030
 Login Test
     [Documentation]    Test Case for logging in with valid credentials.
     Open Browser To Login Page
-    Login credentials
+    #Login credentials
+    #Vylepšení lektora
+    login_page.Login ${USERNAME} with password ${PASSWORD}
     Click Button    login-button
     Page Should Contain Element    id:inventory_container
    
@@ -35,7 +38,7 @@ Checkout Test
     Slow Down
     Checkout credentials
     Slow Down
-    Click Button    continue
+    Click Button    continue 
     Slow Down
     Checkout Final Part
     Page Should Contain    Swag Labs
@@ -46,8 +49,9 @@ Footer Link Test
 
 Logout Test
     [Documentation]    Test Case for logging out.
-    Slow Down
     Click Element    react-burger-menu-btn
+    Slow Down
+
     Slow Down
     Click Element    logout_sidebar_link
     Page Should Contain Element    login-button
@@ -107,5 +111,3 @@ Checkout Final Part
 
 Slow Down
     Sleep    3s
-
-
