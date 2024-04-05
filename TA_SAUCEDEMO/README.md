@@ -42,6 +42,6 @@ To by vám mělo zpřehlednit JIRU a vyjasnit lépe kdo co dělá na první pohl
 #### Jak poznám, že je úloha za vás odevzdaná? 
 
 - Vaše příspěvky budou vidět v GITU a to k čemu jste se zavázali v JIRE. 
-- Pokud svou část úkolu budete považovat za odevzdanou prosím nahrejte sem txt soubor s názvem DONE a případně textem vevnitř s vaším případným komentářem.
+- Pokud svou část úkolu budete považovat za odevzdanou prosím nahrejte do elerningu txt soubor s názvem DONE a případně textem vevnitř s vaším případným komentářem.
 
 Děkuji a přeji ať se daří!
