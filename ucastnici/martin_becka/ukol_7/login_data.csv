@@ -1,0 +1,7 @@
+username,password,expected
+standard_user,secret_sauce,https://www.saucedemo.com/inventory.html
+locked_out_user,secret_sauce,https://www.saucedemo.com/inventory.html
+problem_user,secret_sauce,https://www.saucedemo.com/inventory.html
+performance_glitch_user,secret_sauce,https://www.saucedemo.com/inventory.html
+error_user,secret_sauce,https://www.saucedemo.com/inventory.html
+visual_user,secret_sauce,https://www.saucedemo.com/inventory.html
