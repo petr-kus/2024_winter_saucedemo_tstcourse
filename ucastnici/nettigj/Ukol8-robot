@@ -1,0 +1,37 @@
+*** Settings ***
+Documentation     test saucedemo.com
+Library           SeleniumLibrary
+
+*** Variables ***
+${LOGIN URL}      https://www.saucedemo.com/
+${BROWSER}        Chrome
+${USERNAME}       standard_user
+${PASSWORD}       secret_sauce
+
+
+*** Test Cases ***
+Open Browser  ${LOGIN URL}     ${BROWSER} 
+  Input Text  id:user-name  ${USERNAME}
+  Input Text  id:password  ${PASSWORD}
+  Click Button  id:login-button
+  Page Should Contain  Products
+  [Teardown]    Close Browser
+
+*** Keywords ***
+Open Browser To Login Page
+    Open Browser    ${LOGIN URL}    ${BROWSER}
+    
+
+Input Username
+    [Arguments]    ${USERNAME}
+    Input Text    user-name    ${USERNAME}
+
+Input Password
+    [Arguments]    ${PASSWORD}
+    Input Text    password    ${PASSWORD}
+
+Submit Credentials
+    Click Button    Login
+
+Page Should Contain  Products
+    Title should be  Swaglabs
