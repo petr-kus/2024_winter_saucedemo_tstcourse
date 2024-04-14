@@ -11,7 +11,7 @@ Library     SeleniumLibrary
 Login And Verify For Standard User
     Login And Verify Dashboard    ${STANDARD_USER}
     Verify User Is Logged In
-
+    #Logout And Verify User Is Logged Out
 
 Login And Verify For Locked Out User
     Login And Verify Dashboard    ${LOCKED_OUT_USER}
