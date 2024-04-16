@@ -49,3 +49,4 @@ Verify that Checkout Overview contains order summary data
     Page Should Contain    Total
     Log To Console     The WebPage contains the information needed to complete entire order.
     Click Button     Finish
+    Click Button    Back Home
