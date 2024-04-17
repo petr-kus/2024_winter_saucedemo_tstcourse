@@ -26,7 +26,7 @@ ${add_test_tshirt}    id:add-to-cart-test.allthethings()-t-shirt-(red)
 *** Keywords ***
 Add Items To Cart And Check Shopping Cart Section
     [Documentation]    This keyword adds items to the cart and afterwards click on shopping cart to check whether the right items were added to it.
-    [Arguments]     ${description label}    ${add_item_button}
+    [Arguments]     ${description_label}    ${inventory_name}
     Click Button    ${add_backpack}
     Click Button    ${add_bike_light}
     Click Button    ${add_bolt_tshirt}
