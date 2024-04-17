@@ -5,7 +5,7 @@ Documentation
 Library    SeleniumLibrary
 
 *** Variables ***
-${shopping_cart}    id:shopping_cart_link
+${shopping_cart_b}    class:shopping_cart_link
 ${continue_shopping}    id:continue-shopping
 ${quantity_label}    class:cart_quantity_label
 ${description_label}    class:cart_desc_label
@@ -26,30 +26,34 @@ ${add_test_tshirt}    id:add-to-cart-test.allthethings()-t-shirt-(red)
 *** Keywords ***
 Add Items To Cart And Check Shopping Cart Section
     [Documentation]    This keyword adds items to the cart and afterwards click on shopping cart to check whether the right items were added to it.
-    [Arguments]     ${description_label}    ${inventory_name}
-    Click Button    ${add_backpack}
-    Click Button    ${add_bike_light}
-    Click Button    ${add_bolt_tshirt}
-    Click Button    ${add_jacket}
-    Click Button    ${add_onesie}
-    Click Button    ${add_test_tshirt}
-    Should Be Equal    ${description label}    ${inventory name}
+    #[Arguments]        ${description_label}    ${inventory_name}
+    Click Button       ${add_backpack}
+    Click Button       ${add_bike_light}
+    Click Button       ${add_bolt_tshirt}
+    Click Button       ${add_jacket}
+    Click Button       ${add_onesie}
+    Click Button       ${add_test_tshirt}
+    Click Element      ${shopping_cart_b}
+    Sleep               2
+    Page Should Contain     Sauce Labs Backpack
+    Page Should Contain     Sauce Labs Bike Light
+    Page Should Contain     Sauce Labs Bolt T-Shirt
+    Page Should Contain     Sauce Labs Fleece Jacket
+    Page Should Contain     Sauce Labs Onesie
+    Page Should Contain     Test.allTheThings() T-Shirt (Red)
 
 Verify whether we are successfully back on the page with items.
     [Documentation]    This keyword clicks on "Continue Shopping" in Shopping cart section and verify whether we are on the page with items.
-    [Arguments]     ${URL_inventory}    ${current_url}
     Click Button    ${continue_shopping}
-    Should Be Equal    ${URL_inventory}    ${current_url}
+    Page Should Contain    Products
 
 Verify whether we are successfully back in Shopping Cart section.
     [Documentation]    This keyword clicks on "Shopping cart" and verify whether we are on the right page.
-    [Arguments]     ${URL_shopping_cart}    ${current_url}
-    Click Button    ${shopping_cart}
-    Should Be Equal    ${URL_shopping_cart}    ${current_url}
+    Click Element    ${shopping_cart_b}
+    Page Should Contain    Your Cart
 
 Verify whether we are successfully in "Checkout" section.
     [Documentation]    This keyword clicks on "Checkout" button and verify whether we are on the right page.
-    [Arguments]     ${URL_checkout}    ${current_url}
-    Click Button    ${checkout}
-    Should Be Equal    ${URL_checkout}    ${current_url}
+    Click Element    ${checkout}
+    Page Should Contain   Checkout: Your Information
 
